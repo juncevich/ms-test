@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: generation_microservice
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: test_rabbit
+    password: test_rabbit
+server:
+  port: 8001
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10

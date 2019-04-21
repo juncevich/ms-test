@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: persistence_microservice
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: test_rabbit
+    password: test_rabbit
+  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: test_db
+#      username: test_mongo
+#      password: test_mongo
+server:
+  port: 8002
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+
