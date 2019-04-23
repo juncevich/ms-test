@@ -20,8 +20,8 @@ repositories {
 }
 
 node {
-    version = '7.9.0'
-    npmVersion = '4.2.0'
+    version = '10.6.0'
+    npmVersion = '6.1.0'
     download = true
     workDir = file("${project.projectDir}/node")
     nodeModulesDir = file("${project.projectDir}/")
