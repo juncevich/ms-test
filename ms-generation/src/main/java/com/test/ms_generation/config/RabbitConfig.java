@@ -4,16 +4,15 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitConfig {
 
-    final static String QUEUE_NAME = "generator-message-queue";
+    private final static String QUEUE_NAME = "generator-message-queue";
+    private final static String QUEUE_KEY = "generator-message-queue";
+    private static final String EXCHANGE_NAME = "generator-exchange";
 
     @Bean
     Queue queue() {
@@ -22,23 +21,11 @@ public class RabbitConfig {
 
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange("generator-exchange");
+        return new TopicExchange(EXCHANGE_NAME);
     }
 
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(QUEUE_NAME);
+        return BindingBuilder.bind(queue).to(exchange).with(QUEUE_KEY);
     }
-
-//    @Bean
-//    public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
-//        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-//        rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
-//        return rabbitTemplate;
-//    }
-//
-//    @Bean
-//    public Jackson2JsonMessageConverter producerJackson2MessageConverter() {
-//        return new Jackson2JsonMessageConverter();
-//    }
 }

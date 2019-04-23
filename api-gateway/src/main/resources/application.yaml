@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api_gateway
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+zuul:
+  routes:
+    users:
+      path: /generation/**
+      serviceId: generation_microservice

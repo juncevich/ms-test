@@ -1,0 +1,8 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: api_microservice
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10

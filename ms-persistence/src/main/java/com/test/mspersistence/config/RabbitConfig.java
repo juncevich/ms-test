@@ -10,7 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfig {
 
-    final static String QUEUE_NAME = "generator-message-queue";
+    private final static String QUEUE_NAME = "generator-message-queue";
+    private final static String QUEUE_KEY = "generator-message-queue";
+    private static final String EXCHANGE_NAME = "generator-exchange";
 
     @Bean
     Queue rabbitQueue() {
@@ -19,12 +21,12 @@ public class RabbitConfig {
 
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange("generator-exchange");
+        return new TopicExchange(EXCHANGE_NAME);
     }
 
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(QUEUE_NAME);
+        return BindingBuilder.bind(queue).to(exchange).with(QUEUE_KEY);
     }
 
 
