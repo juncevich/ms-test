@@ -4,5 +4,11 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway.main" target="1.8" />
+      <module name="api-gateway.test" target="1.8" />
+      <module name="com.test.ms-test.main" target="1.8" />
+      <module name="com.test.ms-test.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

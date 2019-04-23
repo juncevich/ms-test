@@ -8,6 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/api-gateway" />
+            <option value="$PROJECT_DIR$/ms-api" />
+            <option value="$PROJECT_DIR$/ms-discovery" />
+            <option value="$PROJECT_DIR$/ms-generation" />
+            <option value="$PROJECT_DIR$/ms-persistence" />
             <option value="$PROJECT_DIR$/ms-ui" />
           </set>
         </option>
