@@ -1,2 +1,3 @@
 rootProject.name = 'ms-test'
+include 'api-gateway', 'ms-api', 'ms-discovery', 'ms-generation', 'ms-persistence', 'ms-ui'
 
