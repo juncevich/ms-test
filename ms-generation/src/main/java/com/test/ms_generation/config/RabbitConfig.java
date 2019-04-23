@@ -12,7 +12,7 @@ public class RabbitConfig {
 
     private final static String QUEUE_NAME = "generator-message-queue";
     private final static String QUEUE_KEY = "generator-message-queue";
-    private static final String EXCHANGE_NAME = "generator-exchange";
+    private static final String EXCHANGE_NAME = "ms-exchange";
 
     @Bean
     Queue queue() {

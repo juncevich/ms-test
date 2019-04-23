@@ -15,8 +15,11 @@ import org.springframework.amqp.core.Message;
 @Component
 public class ResultListener {
 
-    @Autowired
-    private ResultService resultService;
+    private final ResultService resultService;
+
+    public ResultListener(ResultService resultService) {
+        this.resultService = resultService;
+    }
 
     @RabbitListener(queues = "#{rabbitQueue.name}")
     public void receiveMessage(Message message){
@@ -26,11 +29,4 @@ public class ResultListener {
         resultService.save(result);
     }
 
-//    @RabbitListener(queues = "#{rabbitQueue.name}")
-//    public void receiveMessage(Message resultDto){
-//        log.info("Received: {}", resultDto);
-////        ResultDto resultDto = new Gson().fromJson(message.getBody().toString(), ResultDto.class);
-////        Result result = Result.builder().localDateTime(resultDto.getLocalDateTime()).value(resultDto.getValue()).build();
-////        resultService.save(result);
-//    }
 }
