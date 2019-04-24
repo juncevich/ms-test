@@ -14,6 +14,6 @@ zuul:
     api:
       path: /api/**
       serviceId: api_microservice
-#ribbon:
-#  ReadTimeout: 30000
-#  IsSecure: false
+ribbon:
+  ReadTimeout: 30000
+  IsSecure: false
