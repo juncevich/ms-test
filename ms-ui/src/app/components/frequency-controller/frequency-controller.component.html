@@ -1,8 +1,7 @@
 <div class="container">
 
 
-  <!--  <div class="row">-->
-  <div class = "row">
+  <div class="row">
     <td>
       <button mat-raised-button (click)="changeFrequency()">Change frequency</button>
     </td>
@@ -13,13 +12,13 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Measure units</mat-label>
-      <mat-select value="1000" [(ngModel)]="multiply">
-        <mat-option value="1000">Секунды</mat-option>
-        <mat-option value="1">Миллисекунды</mat-option>
+      <!--      <mat-label>Measure units</mat-label>-->
+      <mat-select [ngModel]="multiply.multiply_factor" (ngModelChange)="onChange($event)">
+        <mat-option *ngFor="let mult of multiplies" [value]="mult.multiply_factor" >
+          {{mult.units}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
 
-  <!--  </div>-->
 </div>
