@@ -1,0 +1,27 @@
+button {
+  margin: 16px 8px;
+}
+
+.mat-table{
+  display: block;
+}
+.mat-table td {
+  border-right: 1px solid #e0e0e0;
+  width: 400px;
+  /*margin: 10px 0 10px 0;*/
+  padding: 10px 10px 10px 20px;
+}
+
+.mat-table th {
+  border-right: 1px solid #e0e0e0;
+  /*margin: 10px 0 10px 0;*/
+  padding: 10px 10px 10px 20px;
+}
+
+:host {
+  display: block;
+  width: 600px;
+  margin: auto;
+}
+
+

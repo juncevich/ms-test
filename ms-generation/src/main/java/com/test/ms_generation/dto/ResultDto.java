@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class ResultDto {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime localDateTime;
 
 

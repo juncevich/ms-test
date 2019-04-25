@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class ResultDto implements Serializable {
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime localDateTime;
 //    @JsonProperty("value")
     private String value;

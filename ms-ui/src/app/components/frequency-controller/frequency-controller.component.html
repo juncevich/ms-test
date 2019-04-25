@@ -1,0 +1,25 @@
+<div class="container">
+
+
+  <!--  <div class="row">-->
+  <div class = "row">
+    <td>
+      <button mat-raised-button (click)="changeFrequency()">Change frequency</button>
+    </td>
+
+    <mat-form-field>
+      <mat-label>Generation frequency</mat-label>
+      <input matInput placeholder="Input frequency" value="5" [(ngModel)]="frequency">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Measure units</mat-label>
+      <mat-select value="1000" [(ngModel)]="multiply">
+        <mat-option value="1000">Секунды</mat-option>
+        <mat-option value="1">Миллисекунды</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!--  </div>-->
+</div>
