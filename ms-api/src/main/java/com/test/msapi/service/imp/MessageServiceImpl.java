@@ -23,7 +23,8 @@ public class MessageServiceImpl implements MessageService {
     public String sendGetResultRequest() {
         log.info("Try to get results in MessageService.");
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        Object getResult = rabbitTemplate.convertSendAndReceive("result-exchange", "getResult", "", correlationData);
+        Object getResult = rabbitTemplate.convertSendAndReceive("ms-exchange", "getResult",
+                "", correlationData);
         return String.valueOf(getResult);
     }
 

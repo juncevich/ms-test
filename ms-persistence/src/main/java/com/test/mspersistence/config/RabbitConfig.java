@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfig {
 
-    private static final String EXCHANGE_NAME = "result-exchange";
+    private static final String EXCHANGE_NAME = "ms-exchange";
 
     @Bean
     DirectExchange exchange() {

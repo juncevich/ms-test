@@ -5,7 +5,7 @@ import com.test.mspersistence.dto.ResultDto;
 
 public class ResultConverter {
 
-    public static ResultDto convertFromtoDto(Result result){
+    public static ResultDto convertFromToDto(Result result){
         return ResultDto.builder()
                 .localDateTime(result.getLocalDateTime())
                 .value(result.getValue())

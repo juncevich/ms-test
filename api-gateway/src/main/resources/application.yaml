@@ -8,12 +8,9 @@ eureka:
     lease-renewal-interval-in-seconds: 10
 zuul:
   routes:
-    generation:
-      path: /generation/**
-      serviceId: generation_microservice
     api:
       path: /api/**
       serviceId: api_microservice
 ribbon:
-  ReadTimeout: 30000
+  ReadTimeout: 10000
   IsSecure: false

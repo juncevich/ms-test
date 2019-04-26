@@ -353,8 +353,7 @@ var DataServiceService = /** @class */ (function () {
         return this.httpModule.get(_app_constants__WEBPACK_IMPORTED_MODULE_2__["API_URL"] + "api/results");
     };
     DataServiceService.prototype.changeFrequency = function (milliseconds) {
-        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('delay', String(milliseconds));
-        var url = _app_constants__WEBPACK_IMPORTED_MODULE_2__["API_URL"] + "generation/changeDelay/" + milliseconds;
+        var url = _app_constants__WEBPACK_IMPORTED_MODULE_2__["API_URL"] + "api/changeDelay/" + milliseconds;
         return this.httpModule.post(url.toString(), "");
     };
     DataServiceService = __decorate([
