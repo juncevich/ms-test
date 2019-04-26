@@ -14,3 +14,6 @@ server:
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      default-zone: http://discovery:8761/eureka
