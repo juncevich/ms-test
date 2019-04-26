@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.test.ms_generation.dto.ResultDto;
 import com.test.ms_generation.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,14 @@ public class MessageServiceImpl implements MessageService {
 
     private final RabbitTemplate rabbitTemplate;
 
-    private final TopicExchange topic;
+    private final DirectExchange topic;
 
+    private final ObjectMapper objectMapper;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    public MessageServiceImpl(RabbitTemplate rabbitTemplate, TopicExchange topic) {
+    public MessageServiceImpl(RabbitTemplate rabbitTemplate, DirectExchange topic, ObjectMapper objectMapper) {
         this.rabbitTemplate = rabbitTemplate;
         this.topic = topic;
+        this.objectMapper = objectMapper;
     }
 
     @Override

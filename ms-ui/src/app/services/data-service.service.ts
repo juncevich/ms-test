@@ -18,8 +18,7 @@ export class DataServiceService {
   }
 
   changeFrequency(milliseconds: number) {
-    const params = new HttpParams().set('delay', String(milliseconds));
-    const url = `${API_URL}generation/changeDelay/` + milliseconds;
+    const url = `${API_URL}api/changeDelay/` + milliseconds;
     return this.httpModule.post(url.toString(), ``);
   }
 

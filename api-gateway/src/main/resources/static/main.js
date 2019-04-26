@@ -262,7 +262,7 @@ module.exports = "button {\r\n  margin: 16px 8px;\r\n}\r\n:host {\r\n  display: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n\n  <!--  <div class=\"row\">-->\n  <div class = \"row\">\n    <td>\n      <button mat-raised-button (click)=\"changeFrequency()\">Change frequency</button>\n    </td>\n\n    <mat-form-field>\n      <mat-label>Generation frequency</mat-label>\n      <input matInput placeholder=\"Input frequency\" value=\"5\" [(ngModel)]=\"frequency\">\n    </mat-form-field>\n\n    <mat-form-field>\n      <mat-label>Measure units</mat-label>\n      <mat-select value=\"1000\" [(ngModel)]=\"multiply\">\n        <mat-option value=\"1000\">Секунды</mat-option>\n        <mat-option value=\"1\">Миллисекунды</mat-option>\n      </mat-select>\n    </mat-form-field>\n  </div>\n\n  <!--  </div>-->\n</div>\n"
+module.exports = "<div class=\"container\">\n\n\n  <div class=\"row\">\n    <td>\n      <button mat-raised-button (click)=\"changeFrequency()\">Change frequency</button>\n    </td>\n\n    <mat-form-field>\n      <mat-label>Generation frequency</mat-label>\n      <input matInput placeholder=\"Input frequency\" value=\"5\" [(ngModel)]=\"frequency\">\n    </mat-form-field>\n\n    <mat-form-field>\n      <!--      <mat-label>Measure units</mat-label>-->\n      <mat-select [ngModel]=\"multiply.multiply_factor\" (ngModelChange)=\"onChange($event)\">\n        <mat-option *ngFor=\"let mult of multiplies\" [value]=\"mult.multiply_factor\" >\n          {{mult.units}}\n        </mat-option>\n      </mat-select>\n    </mat-form-field>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -292,19 +292,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var FrequencyControllerComponent = /** @class */ (function () {
     function FrequencyControllerComponent(dataService) {
         this.dataService = dataService;
+        this.multiplies = [{ units: "\u0421\u0435\u043A\u0443\u043D\u0434\u044B", multiply_factor: 1000 }, { units: "\u041C\u0438\u043B\u043B\u0438\u0441\u0435\u043A\u0443\u043D\u0434\u044B", multiply_factor: 1 }];
     }
     FrequencyControllerComponent.prototype.ngOnInit = function () {
         this.frequency = 5;
-        this.multiply = 1000;
+        this.multiply = this.multiplies.find(function (value) { return value.units === "\u0421\u0435\u043A\u0443\u043D\u0434\u044B"; });
     };
     FrequencyControllerComponent.prototype.changeFrequency = function () {
-        console.log(this.frequency * this.multiply);
-        var result = this.frequency * this.multiply;
-        console.log(result);
-        this.dataService.changeFrequency(result).subscribe(function (response) {
-            console.log(response);
-            // this.results = response;
-        });
+        var result = this.frequency * +this.multiply.multiply_factor;
+        this.dataService.changeFrequency(result).subscribe();
+    };
+    FrequencyControllerComponent.prototype.onChange = function (newValue) {
+        this.multiply = this.multiplies.find(function (value) { return value.multiply_factor === newValue; });
     };
     FrequencyControllerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
